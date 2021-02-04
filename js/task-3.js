@@ -24,3 +24,17 @@ const images = [
     alt: "Group of Horses Running",
   },
 ];
+
+const galleryRef = document.querySelector("#gallery");
+
+const createItem = (image) => {
+  const galleryItemRef = document.createElement("li");
+  galleryItemRef.classList.add("gallery-item");
+  const string = `<img src=${image.url} alt="${image.alt}" class="gallery-item-image"/>`;
+  galleryItemRef.insertAdjacentHTML("afterbegin", string);
+  return galleryItemRef;
+};
+
+const galleryItems = images.map((image) => createItem(image));
+
+galleryRef.append(...galleryItems);
